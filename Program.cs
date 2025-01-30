@@ -19,6 +19,10 @@ namespace PorkerGame {
                                         input.OutPutCardNum(2),
                                         input.OutPutCardNum(3));
                 judgment.CardNumJudgment();
+
+                if(input.IsEndGame()) {
+                    break;
+                }
             }
         }
     }

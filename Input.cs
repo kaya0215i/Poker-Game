@@ -2,15 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace PorkerGame {
     internal class Input {
         private int[] cardNum;
+        int maxNum = 13;
 
         public Input() {
-            cardNum = new int[4];
+            cardNum = new int[maxNum];
         }
 
         public void InputCardNum() {
@@ -23,7 +25,7 @@ namespace PorkerGame {
                     bool result = int.TryParse(input, out this.cardNum[i]);
 
                     if (result) {
-                        if(1 <=cardNum[i] && cardNum[i] <= 4) {
+                        if(1 <=cardNum[i] && cardNum[i] <= maxNum) {
                             break;
                         }
                         else {
@@ -39,6 +41,24 @@ namespace PorkerGame {
 
         public int OutPutCardNum(int num) {
             return cardNum[num];
+        }
+
+        public bool IsEndGame() {
+            while (true) {
+                Console.WriteLine("もう一度遊びますか？(y:はい, n:いいえ)");
+
+                string input = Console.ReadLine();
+
+                if (input == "y") {
+                    return false;
+                }
+                else if (input == "n") {
+                    return true;
+                }
+                else {
+                    Console.WriteLine("正しい値を入力してください");
+                }
+            }
         }
     }
 }
