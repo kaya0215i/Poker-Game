@@ -12,7 +12,8 @@ namespace PorkerGame {
 
             while (true) {
                 input = new Input();
-                input.InputCardNum();
+
+                input.SelectInputType();
 
                 judgment = new Judgment(input.OutPutCardNum(0),
                                         input.OutPutCardNum(1),

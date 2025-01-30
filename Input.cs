@@ -9,10 +9,30 @@ using System.Threading.Tasks;
 namespace PorkerGame {
     internal class Input {
         private int[] cardNum;
-        int maxNum = 13;
+        private int maxNum = 13;
 
         public Input() {
             cardNum = new int[maxNum];
+        }
+
+        public void SelectInputType() {
+            while (true) {
+                Console.WriteLine("カードの選定方法を選択してください (1:自分で入力, 2:ランダムで生成)");
+
+                string input = Console.ReadLine();
+
+                if (input == "1") {
+                    InputCardNum();
+                    break;
+                }
+                else if (input == "2") {
+                    RandomCardSelect();
+                    break;
+                }
+                else {
+                    Console.WriteLine("正しい値を入力してください");
+                }
+            }
         }
 
         public void InputCardNum() {
@@ -37,6 +57,21 @@ namespace PorkerGame {
                     }
                 }
             }
+        }
+
+        public void RandomCardSelect() {
+            Random rnd = new Random();
+
+            Console.WriteLine("カードをランダムに生成します");
+
+            Console.ReadLine();
+
+            for (int i = 0; i < 4; i++) {
+                cardNum[i] = rnd.Next(1, 14);
+                Console.WriteLine($"{i + 1}番目のカード > {cardNum[i]}");
+            }
+
+            Console.ReadLine();
         }
 
         public int OutPutCardNum(int num) {
