@@ -13,7 +13,7 @@ namespace PorkerGame {
             cardNum = new int[4];
         }
 
-        public void inputCardNum() {
+        public void InputCardNum() {
             for (int i = 0; i < 4; i++) {
                 while (true) {
                     Console.Write($"{i + 1}番目のカードを入力してください > ");
@@ -35,6 +35,10 @@ namespace PorkerGame {
                     }
                 }
             }
+        }
+
+        public int OutPutCardNum(int num) {
+            return cardNum[num];
         }
     }
 }

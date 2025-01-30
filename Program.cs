@@ -7,9 +7,19 @@ using System.Threading.Tasks;
 namespace PorkerGame {
     internal class Program {
         static void Main(string[] args) {
-            Input input = new Input();
-            
-            input.inputCardNum();
+            Input input;
+            Judgment judgment;
+
+            while (true) {
+                input = new Input();
+                input.InputCardNum();
+
+                judgment = new Judgment(input.OutPutCardNum(0),
+                                        input.OutPutCardNum(1),
+                                        input.OutPutCardNum(2),
+                                        input.OutPutCardNum(3));
+                judgment.CardNumJudgment();
+            }
         }
     }
 }
